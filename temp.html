@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Temperature Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        #output {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Temperature Calculator</h1>
+    
+    <script>
+        // Global variable to store the sum of temperatures
+        let totalTemperature = 0.0;
+
+        // Function to calculate the average temperature
+        function calculateAverage() {
+            // Local variable to store the sum of temperatures
+            let localTotalTemperature = 0.0;
+
+            // Temperatures for the day and night (in Celsius)
+            const temperatures = [20.5, 22.0, 25.5, 28.0, 30.0, 32.5, 34.0, 35.0, 33.5, 30.0, 28.0, 25.5, 22.0, 20.5];
+
+            // Calculate the total temperature and store it in the local variable
+            for (const temperature of temperatures) {
+                localTotalTemperature += temperature;
+            }
+
+            // Update the global variable with the local total
+            totalTemperature = localTotalTemperature;
+
+            // Calculate and display the average temperature
+            const averageTemperature = totalTemperature / temperatures.length;
+            document.getElementById("output").innerText = `The average temperature for the day and night is ${averageTemperature.toFixed(2)}°C.`;
+        }
+
+        // Call the calculateAverage function when the page loads
+        window.onload = calculateAverage;
+    </script>
+
+    <div id="output"></div>
+</body>
+</html>
